@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ru" data-era="ussr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Студенчество: тогда и сейчас</title>
+<meta name="description" content="Как студенты жили и организовывались в СССР и как это происходит в современной России.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=PT+Serif:wght@400;700&family=Rubik:wght@400;500;700&display=swap">
+<style>
+:root{
+  --bg:#E6E8DD; --ink:#1B241E; --muted:#4f5a52; --accent:#C8281E; --panel:#F4F5EE; --bdr:#1B241E; --soft:rgba(27,36,30,.22);
+  --hero:#C8281E; --heroink:#F4F1E6; --s1:#1B241E; --s2:#F4F1E6; --band:#1B241E; --bandink:#E6E8DD;
+  --head:'Oswald','Arial Narrow',Impact,sans-serif; --body:'PT Serif',Georgia,serif;
+  --radius:0px; --bw:2px; --shadow:6px 6px 0 #1B241E;
+}
+html[data-era="ru"]{
+  --bg:#F1F3FF; --ink:#14163A; --muted:#545a85; --accent:#3D5AFE; --panel:#FFFFFF; --bdr:#C9CFF5; --soft:#C9CFF5;
+  --hero:#14163A; --heroink:#FFFFFF; --s1:#3D5AFE; --s2:#FFFFFF; --band:#3D5AFE; --bandink:#FFFFFF;
+  --head:'Rubik',system-ui,sans-serif; --body:'Rubik',system-ui,sans-serif;
+  --radius:20px; --bw:1px; --shadow:0 18px 40px -22px rgba(61,90,254,.6);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.65;transition:background .4s,color .4s}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 22px;position:relative;z-index:1}
+
+/* hero */
+header.hero{position:relative;overflow:hidden;background:var(--hero);color:var(--heroink);padding:30px 0 90px;transition:background .4s,color .4s}
+header.hero::before,header.hero::after{content:"";position:absolute;z-index:0;transition:all .5s}
+html[data-era="ussr"] header.hero::before{right:-6vw;top:-8vw;width:min(46vw,520px);aspect-ratio:1;border-radius:50%;background:var(--s1)}
+html[data-era="ussr"] header.hero::after{left:-10%;bottom:38px;width:120%;height:16px;background:var(--s2);transform:rotate(-3deg)}
+html[data-era="ru"] header.hero::before{right:-4vw;top:-6vw;width:min(44vw,500px);aspect-ratio:1;border-radius:42%;background:var(--s1);transform:rotate(14deg)}
+html[data-era="ru"] header.hero::after{right:32%;bottom:-70px;width:210px;height:210px;border-radius:52px;background:var(--s2);opacity:.12;transform:rotate(20deg)}
+.switch{display:inline-flex;border:2px solid var(--heroink);border-radius:var(--radius);overflow:hidden;margin-bottom:44px}
+html[data-era="ru"] .switch{border-radius:999px}
+.switch button{font-family:var(--head);font-size:19px;font-weight:700;letter-spacing:.03em;padding:11px 28px;border:0;background:transparent;color:var(--heroink);cursor:pointer;transition:background .25s,color .25s}
+.switch button[aria-pressed="true"]{background:var(--heroink);color:var(--hero)}
+.year{font-family:var(--head);font-weight:700;font-size:clamp(110px,27vw,300px);line-height:.85;margin:0;letter-spacing:-.03em;animation:rise .8s ease-out both}
+@keyframes rise{from{transform:translateY(30px);opacity:0}to{transform:none;opacity:1}}
+h1{font-family:var(--head);font-weight:700;font-size:clamp(30px,5vw,54px);line-height:1.08;margin:26px 0 16px;max-width:17ch}
+html[data-era="ussr"] h1{text-transform:uppercase}
+.lead{max-width:56ch;margin:0;opacity:.88}
+
+/* sections */
+section{padding:76px 0;border-bottom:1px solid var(--soft)}
+h2{font-family:var(--head);font-size:clamp(28px,4.4vw,44px);line-height:1.1;margin:0 0 6px}
+html[data-era="ussr"] h2{text-transform:uppercase}
+h2::after{content:"";display:block;width:72px;height:6px;margin:14px 0 0;background:var(--accent);border-radius:var(--radius)}
+html[data-era="ru"] h2::after{border-radius:99px}
+.sub{color:var(--muted);margin:16px 0 36px;max-width:60ch}
+#play,#quiz{background:var(--band);color:var(--bandink);border-bottom:0}
+#play .sub,#quiz .sub,#quiz .meta{color:inherit;opacity:.8}
+#play h2::after,#quiz h2::after{background:var(--bandink)}
+#play .go,#quiz .go{background:var(--bandink);color:var(--band)}
+
+/* cards */
+.cmp,.box,.gal figure{border:var(--bw) solid var(--bdr);border-radius:var(--radius);background:var(--panel);box-shadow:var(--shadow)}
+.cmp{display:grid;grid-template-columns:150px 1fr 1fr;overflow:hidden;color:var(--ink)}
+.cmp>div{padding:18px 20px;border-top:1px solid var(--soft)}
+.cmp>.h{border-top:0;font-family:var(--head);font-weight:700;font-size:20px;background:var(--ink);color:var(--bg)}
+.cmp>.k{font-family:var(--head);font-weight:700;color:var(--accent)}
+.cmp>.c{transition:opacity .3s,background .3s}
+.cmp p{margin:0;font-size:16px;line-height:1.55}
+html[data-era="ussr"] .cmp>.c.r,html[data-era="ru"] .cmp>.c.u{opacity:.42}
+html[data-era="ussr"] .cmp>.c.u,html[data-era="ru"] .cmp>.c.r{background:color-mix(in srgb,var(--accent) 10%,transparent)}
+.orgs{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.box{padding:28px}
+.box h3{font-family:var(--head);font-size:26px;margin:0 0 6px;color:var(--accent)}
+.box ul{margin:12px 0 0;padding-left:20px}
+.box li{margin:7px 0;font-size:16px}
+.box .why{margin:18px 0 0;padding-top:14px;border-top:1px solid var(--soft);font-size:15px;color:var(--muted)}
+.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.gal figure{margin:0;overflow:hidden;color:var(--ink)}
+.gal svg{display:block;width:100%;height:auto;background:color-mix(in srgb,var(--accent) 12%,var(--panel))}
+.gal figcaption{padding:12px 14px;font-size:14px;line-height:1.4}
+.gal .e{display:none}
+html[data-era="ussr"] .gal .e.u,html[data-era="ru"] .gal .e.r{display:block}
+
+/* interactive */
+.opt{display:block;width:100%;text-align:left;font:inherit;font-size:16px;color:var(--ink);background:var(--panel);border:var(--bw) solid var(--bdr);border-radius:var(--radius);padding:15px 18px;margin:12px 0;cursor:pointer;transition:transform .15s,border-color .15s}
+.opt:hover:not(:disabled){border-color:var(--accent);transform:translateX(4px)}
+.opt:disabled{cursor:default}
+.opt.good{border-color:#1e8a4c;background:#dff3e6;color:#12301f}
+.opt.bad{border-color:#c0261c;background:#fbe3e0;color:#4a120d}
+.res{margin:16px 0 0;padding:16px 18px;border-left:5px solid var(--accent);background:var(--panel);color:var(--ink);font-size:16px;border-radius:0 var(--radius) var(--radius) 0}
+.q{font-family:var(--head);font-size:clamp(22px,3vw,28px);line-height:1.25;margin:0 0 8px}
+.meta{color:var(--muted);font-size:14px;margin:0 0 10px}
+.go{font-family:var(--head);font-size:18px;font-weight:700;background:var(--accent);color:#fff;border:0;border-radius:var(--radius);padding:12px 28px;cursor:pointer;margin-top:16px}
+html[data-era="ru"] .go{border-radius:99px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.two .opt{text-align:center;font-family:var(--head);font-size:20px;font-weight:700}
+
+/* timeline, same, end */
+.tl{list-style:none;margin:0;padding:0 0 0 6px;border-left:3px solid var(--accent)}
+.tl li{position:relative;padding:0 0 30px 30px}
+.tl li::before{content:"";position:absolute;left:-12px;top:9px;width:19px;height:19px;background:var(--bg);border:4px solid var(--accent);border-radius:50%}
+.tl b{display:block;font-family:var(--head);font-size:28px;line-height:1.2;color:var(--accent)}
+.tl span{font-size:16px}
+.same{columns:2;column-gap:44px;padding:0;list-style:none;margin:0}
+.same li{break-inside:avoid;padding:12px 0;border-bottom:1px solid var(--soft);font-size:16px}
+#conclusion{background:var(--accent);color:#fff;border-bottom:0;padding:96px 0}
+.conclusion{font-family:var(--head);font-weight:700;font-size:clamp(26px,4.2vw,46px);line-height:1.2;max-width:24ch;margin:0}
+footer{padding:36px 0 60px;font-size:14px;color:var(--muted)}
+
+@media (max-width:760px){
+  .cmp{grid-template-columns:1fr}
+  .cmp>.h{display:none}
+  .cmp>.k{background:color-mix(in srgb,var(--accent) 14%,transparent);border-top:2px solid var(--bdr)}
+  .cmp>.c.u::before{content:"СССР: ";font-weight:700}
+  .cmp>.c.r::before{content:"Сегодня: ";font-weight:700}
+  .orgs,.two{grid-template-columns:1fr}
+  .gal{grid-template-columns:1fr 1fr;gap:14px}
+  .same{columns:1}
+  section{padding:56px 0}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="switch" role="group" aria-label="Выбор эпохи">
+      <button type="button" data-set="ussr" aria-pressed="true">СССР</button>
+      <button type="button" data-set="ru" aria-pressed="false">Россия сегодня</button>
+    </div>
+    <p class="year" id="year" aria-hidden="true">1975</p>
+    <h1 id="title">Студент в СССР: учёба, стройотряд, комсомол</h1>
+    <p class="lead" id="lead">Нажмите «Россия сегодня», и страница сменит эпоху. Мы сравнили, как студенты жили, зарабатывали и главное — как объединялись в организации.</p>
+  </div>
+</header>
+
+<main>
+<section id="compare">
+  <div class="wrap">
+    <h2>Один и тот же студент, две страны</h2>
+    <p class="sub">Шесть сторон студенческой жизни. Колонка выбранной эпохи подсвечена.</p>
+    <div class="cmp">
+      <div class="h"></div><div class="h">СССР</div><div class="h">Россия сегодня</div>
+
+      <div class="k">Поступление</div>
+      <div class="c u"><p>Вступительные экзамены в каждый вуз отдельно, большой конкурс в престижные институты.</p></div>
+      <div class="c r"><p>Единый государственный экзамен (с 2009 года по всей стране) и подача документов в несколько вузов сразу.</p></div>
+
+      <div class="k">Деньги</div>
+      <div class="c u"><p>Обучение бесплатное, платили стипендию. Подрабатывали в студенческих отрядах и на разгрузке.</p></div>
+      <div class="c r"><p>Есть бюджет и платное обучение. Стипендия небольшая, поэтому подработка, стажировки и фриланс — норма.</p></div>
+
+      <div class="k">Жильё</div>
+      <div class="c u"><p>Общежитие для большинства иногородних, часто на несколько человек в комнате.</p></div>
+      <div class="c r"><p>Общежитие или съём квартиры вскладчину. Место в общежитии нужно получить.</p></div>
+
+      <div class="k">После выпуска</div>
+      <div class="c u"><p>Распределение: выпускник бюджетного отделения должен был отработать на назначенном месте несколько лет.</p></div>
+      <div class="c r"><p>Работу ищут сами: стажировки, карьерные центры, удалёнка, собственные проекты.</p></div>
+
+      <div class="k">Внеучебка</div>
+      <div class="c u"><p>Комсомольская работа, КВН, «картошка» осенью, стройотряды летом.</p></div>
+      <div class="c r"><p>Студсоветы, клубы, волонтёрство, хакатоны, КВН тоже жив.</p></div>
+
+      <div class="k">Связь</div>
+      <div class="c u"><p>Письма, телеграммы, междугородный телефон, доска объявлений в коридоре.</p></div>
+      <div class="c r"><p>Групповые чаты в мессенджерах, где живёт вся организация группы.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="orgs">
+  <div class="wrap">
+    <h2>Как студенты организовывались</h2>
+    <p class="sub">Это и есть главное для темы организации: формальные структуры сверху и самоорганизация снизу.</p>
+    <div class="orgs">
+      <div class="box">
+        <h3>СССР</h3>
+        <ul>
+          <li>Комсомольская ячейка и комитет комсомола на факультете</li>
+          <li>Профком: распределение путёвок и мест в общежитии</li>
+          <li>Студенческие отряды (с 1959 года): работа летом и общее дело</li>
+          <li>Студенческие научные общества</li>
+          <li>Староста группы как связующее звено с деканатом</li>
+        </ul>
+        <p class="why">Структура строилась сверху: вступить было почти обязательно, а правила задавала организация.</p>
+      </div>
+      <div class="box">
+        <h3>Россия сегодня</h3>
+        <ul>
+          <li>Студенческий совет и профсоюзная организация студентов</li>
+          <li>Клубы по интересам, научные кружки, волонтёрские центры</li>
+          <li>Команды на хакатонах и в студенческих стартапах</li>
+          <li>Чат группы и чат потока как самая быстрая «организация»</li>
+          <li>Староста, который собирает информацию в мессенджере</li>
+        </ul>
+        <p class="why">Участие добровольное: люди объединяются под задачу, а не по обязанности.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="wrap">
+    <h2>Как это выглядело</h2>
+    <p class="sub">Иллюстрации меняются вместе с эпохой. Для реальных фото замените блоки svg на теги img с архивными снимками.</p>
+    <div class="gal">
+      <figure class="e u"><svg viewBox="0 0 200 140" role="img" aria-label="Студенческий билет"><rect x="45" y="12" width="110" height="116" rx="4" fill="#B3261E"/><circle cx="100" cy="48" r="16" fill="none" stroke="#E9EDE3" stroke-width="3"/><path d="M100 36l3 9h9l-7 5 3 9-8-6-8 6 3-9-7-5h9z" fill="#E9EDE3"/><rect x="62" y="80" width="76" height="6" fill="#E9EDE3"/><rect x="62" y="94" width="56" height="5" fill="#E9EDE3" opacity=".7"/><rect x="62" y="106" width="64" height="5" fill="#E9EDE3" opacity=".7"/></svg><figcaption>Студенческий билет в красной корочке</figcaption></figure>
+      <figure class="e u"><svg viewBox="0 0 200 140" role="img" aria-label="Общежитие"><rect x="30" y="20" width="140" height="104" fill="#4d5b50"/><g fill="#E9EDE3"><rect x="42" y="32" width="18" height="16"/><rect x="72" y="32" width="18" height="16"/><rect x="102" y="32" width="18" height="16"/><rect x="132" y="32" width="18" height="16"/><rect x="42" y="60" width="18" height="16"/><rect x="72" y="60" width="18" height="16" fill="#E8B84A"/><rect x="102" y="60" width="18" height="16"/><rect x="132" y="60" width="18" height="16" fill="#E8B84A"/><rect x="42" y="88" width="18" height="16" fill="#E8B84A"/><rect x="72" y="88" width="18" height="16"/><rect x="132" y="88" width="18" height="16"/></g><rect x="92" y="100" width="16" height="24" fill="#1E2B22"/></svg><figcaption>Общежитие: комната на троих-четверых</figcaption></figure>
+      <figure class="e u"><svg viewBox="0 0 200 140" role="img" aria-label="Стройотряд"><circle cx="150" cy="32" r="16" fill="#E8B84A"/><path d="M0 110h200v30H0z" fill="#4d5b50"/><path d="M60 110V60l40-24 40 24v50z" fill="#B3261E"/><rect x="88" y="78" width="24" height="32" fill="#E9EDE3"/><path d="M20 110l14-42 14 42" fill="none" stroke="#1E2B22" stroke-width="4"/></svg><figcaption>Стройотряд: лето, палатки и общая работа</figcaption></figure>
+      <figure class="e u"><svg viewBox="0 0 200 140" role="img" aria-label="Телефонный аппарат"><rect x="40" y="70" width="120" height="50" rx="8" fill="#1E2B22"/><rect x="50" y="52" width="100" height="18" rx="9" fill="#B3261E"/><circle cx="100" cy="95" r="18" fill="#E9EDE3"/><circle cx="100" cy="95" r="4" fill="#1E2B22"/></svg><figcaption>Звонок домой с переговорного пункта</figcaption></figure>
+
+      <figure class="e r"><svg viewBox="0 0 200 140" role="img" aria-label="Электронный студенческий"><rect x="30" y="30" width="140" height="84" rx="12" fill="#3D5AFE"/><circle cx="62" cy="62" r="14" fill="#fff" opacity=".9"/><rect x="86" y="54" width="62" height="8" rx="4" fill="#fff"/><rect x="86" y="70" width="42" height="6" rx="3" fill="#fff" opacity=".7"/><rect x="46" y="94" width="108" height="6" rx="3" fill="#fff" opacity=".5"/></svg><figcaption>Цифровой пропуск и студенческий</figcaption></figure>
+      <figure class="e r"><svg viewBox="0 0 200 140" role="img" aria-label="Чат группы"><rect x="62" y="10" width="76" height="120" rx="12" fill="#14163A"/><rect x="72" y="24" width="48" height="16" rx="8" fill="#3D5AFE"/><rect x="82" y="48" width="48" height="16" rx="8" fill="#fff"/><rect x="72" y="72" width="40" height="16" rx="8" fill="#3D5AFE"/><rect x="82" y="96" width="48" height="16" rx="8" fill="#fff"/></svg><figcaption>Чат группы: староста, дедлайны, мемы</figcaption></figure>
+      <figure class="e r"><svg viewBox="0 0 200 140" role="img" aria-label="Хакатон"><rect x="24" y="30" width="110" height="76" rx="8" fill="#14163A"/><path d="M52 54l-14 14 14 14M106 54l14 14-14 14M88 50l-14 36" fill="none" stroke="#3D5AFE" stroke-width="5" stroke-linecap="round"/><rect x="10" y="108" width="138" height="8" rx="4" fill="#545a85"/><rect x="146" y="60" width="40" height="56" rx="6" fill="#3D5AFE"/></svg><figcaption>Хакатон: команда и ноутбуки за выходные</figcaption></figure>
+      <figure class="e r"><svg viewBox="0 0 200 140" role="img" aria-label="Подработка удалённо"><rect x="50" y="40" width="100" height="64" rx="6" fill="#14163A"/><rect x="58" y="48" width="84" height="48" rx="3" fill="#3D5AFE" opacity=".35"/><rect x="30" y="104" width="140" height="10" rx="5" fill="#545a85"/><circle cx="100" cy="72" r="10" fill="#fff"/></svg><figcaption>Подработка и учёба из любого места</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="play">
+  <div class="wrap">
+    <h2>Ты староста: что делаешь?</h2>
+    <p class="sub">Выбери действие. Задача зависит от выбранной эпохи наверху.</p>
+    <p class="q" id="sc-q"></p>
+    <div id="sc-opts"></div>
+    <p class="res" id="sc-res" hidden></p>
+  </div>
+</section>
+
+<section id="sorter">
+  <div class="wrap">
+    <h2>Тогда или сейчас?</h2>
+    <p class="sub">Определи, к какой эпохе относится явление.</p>
+    <p class="meta" id="so-meta"></p>
+    <p class="q" id="so-q"></p>
+    <div class="two">
+      <button class="opt" type="button" data-a="u">СССР</button>
+      <button class="opt" type="button" data-a="r">Россия сегодня</button>
+    </div>
+    <p class="res" id="so-res" hidden></p>
+    <button class="go" id="so-next" type="button" hidden>Дальше</button>
+  </div>
+</section>
+
+<section id="quiz">
+  <div class="wrap">
+    <h2>Викторина</h2>
+    <p class="sub">Пять вопросов по датам и фактам.</p>
+    <p class="meta" id="qz-meta"></p>
+    <p class="q" id="qz-q"></p>
+    <div id="qz-opts"></div>
+    <p class="res" id="qz-res" hidden></p>
+    <button class="go" id="qz-next" type="button" hidden>Дальше</button>
+  </div>
+</section>
+
+<section id="timeline">
+  <div class="wrap">
+    <h2>Вехи</h2>
+    <p class="sub">Даты, которые изменили студенческую жизнь.</p>
+    <ol class="tl">
+      <li><b>1755</b><span>Основан Московский университет, позднее 25 января стал Днём студента (Татьянин день).</span></li>
+      <li><b>1959</b><span>Появляются студенческие отряды, символ советской студенческой самоорганизации.</span></li>
+      <li><b>1961</b><span>Первая игра КВН на телевидении.</span></li>
+      <li><b>1991</b><span>Распад СССР, конец системы распределения и комсомола.</span></li>
+      <li><b>2007</b><span>Закон о двухуровневой системе: бакалавриат и магистратура.</span></li>
+      <li><b>2009</b><span>ЕГЭ становится основной формой поступления по всей стране.</span></li>
+      <li><b>2022–2023</b><span>Решение отказаться от болонской системы и реформа структуры высшего образования.</span></li>
+    </ol>
+  </div>
+</section>
+
+<section id="same">
+  <div class="wrap">
+    <h2>Что не меняется</h2>
+    <p class="sub">Несмотря на эпохи, есть вещи, которые узнает любой студент.</p>
+    <ul class="same">
+      <li>Сессия и ночь перед экзаменом</li>
+      <li>Шпаргалки и поиск «автомата»</li>
+      <li>Студенческая столовая и дешёвый обед</li>
+      <li>Общежитие как отдельная вселенная</li>
+      <li>Татьянин день 25 января</li>
+      <li>Староста, без которого группа не работает</li>
+    </ul>
+  </div>
+</section>
+
+<section id="conclusion" style="border-bottom:0">
+  <div class="wrap">
+    <p class="conclusion">Менялись правила и инструменты, но студенты всегда объединялись, чтобы решать общие задачи.</p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    Проект по дисциплине «Организация…». Авторы: <!-- впишите имена -->[имена команды]. Источники: <!-- добавьте ссылки -->[добавьте список источников].
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  var data={
+    ussr:{year:'1975',title:'Студент в СССР: учёба, стройотряд, комсомол',lead:'Нажмите «Россия сегодня», и страница сменит эпоху. Мы сравнили, как студенты жили, зарабатывали и главное — как объединялись в организации.'},
+    ru:{year:'2026',title:'Студент сегодня: бюджет, подработка, чаты',lead:'Вернитесь в СССР кнопкой выше, чтобы сравнить. Сейчас у студента больше выбора, но и больше ответственности за себя.'}
+  };
+  var btns=document.querySelectorAll('.switch button');
+  function set(era){
+    root.setAttribute('data-era',era);
+    document.getElementById('year').textContent=data[era].year;
+    document.getElementById('title').textContent=data[era].title;
+    document.getElementById('lead').textContent=data[era].lead;
+    btns.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.set===era?'true':'false')});
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){set(b.dataset.set)})});
+})();
+
+(function(){
+  var $=function(id){return document.getElementById(id)};
+  var root=document.documentElement;
+
+  /* сценарий */
+  var SC={
+    ussr:{q:'Тебя выбрали старостой. Деканат просит отправить группу на «картошку» — осенний выезд на уборку урожая.',o:[
+      ['Пойти к комсоргу и получить разнарядку','Так и делали: задачу и сроки задавала структура сверху. Быстро, но у студентов почти нет выбора.'],
+      ['Повесить объявление и ждать добровольцев','Добровольцев немного, и деканат всё равно вмешается. Без давления сверху участие падало.'],
+      ['Обойти комнаты в общежитии и договориться лично','Неформальные связи решали то, что не решала официальная структура. Это и есть самоорганизация.']]},
+    ru:{q:'Ты староста. Нужно собрать группу на волонтёрскую акцию в субботу, а ответа в чате почти ни от кого нет.',o:[
+      ['Сделать опрос в чате и закрепить сообщение','Быстро и удобно, но половина прочитает и промолчит. Чат даёт охват, а не обязательство.'],
+      ['Назначить ответственных за небольшие задачи','Делегирование работает: у каждого появляется своя роль, и общее дело дробится на понятные части.'],
+      ['Ничего не делать и ждать напоминания от деканата','Вертикаль не пришлёт задачу сама. Без инициативы снизу акция просто не состоится.']]}
+  };
+  function scene(){
+    var d=SC[root.dataset.era];$('sc-q').textContent=d.q;$('sc-res').hidden=true;
+    var box=$('sc-opts');box.innerHTML='';
+    d.o.forEach(function(x){var b=document.createElement('button');b.type='button';b.className='opt';b.textContent=x[0];
+      b.onclick=function(){[].forEach.call(box.children,function(c){c.disabled=true});b.classList.add('good');$('sc-res').textContent=x[1];$('sc-res').hidden=false};
+      box.appendChild(b)});
+  }
+  scene();new MutationObserver(scene).observe(root,{attributes:true,attributeFilter:['data-era']});
+
+  /* сортировщик */
+  var S=[['Комсомольское собрание','u','Комсомол был массовой организацией при вузах СССР.'],['Чат группы в мессенджере','r','Сегодня основная связь группы идёт в чатах.'],['Распределение после вуза','u','Выпускники были обязаны отработать на назначенном месте.'],['Хакатон','r','Командные соревнования по разработке стали массовыми в 2010-х.'],['Звонок с переговорного пункта','u','Междугородный разговор заказывали и оплачивали на пункте.'],['ЕГЭ при поступлении','r','ЕГЭ стал основной формой поступления с 2009 года.'],['Стройотряд','u','Студенческие отряды появились в 1959 году.'],['Студенческий совет и профсоюз студентов','r','Это современные добровольные формы студенческого участия.']];
+  var si=0,ss=0;
+  function sorter(){
+    if(si>=S.length){$('so-q').textContent='Готово: '+ss+' из '+S.length;$('so-meta').textContent='';$('so-res').hidden=true;$('so-next').textContent='Сыграть ещё раз';$('so-next').hidden=false;document.querySelectorAll('#sorter .opt').forEach(function(b){b.disabled=true;b.className='opt'});return}
+    $('so-meta').textContent='Вопрос '+(si+1)+' из '+S.length;$('so-q').textContent=S[si][0];$('so-res').hidden=true;$('so-next').hidden=true;
+    document.querySelectorAll('#sorter .opt').forEach(function(b){b.disabled=false;b.className='opt'});
+  }
+  document.querySelectorAll('#sorter .opt').forEach(function(b){b.onclick=function(){
+    var ok=b.dataset.a===S[si][1];if(ok)ss++;
+    document.querySelectorAll('#sorter .opt').forEach(function(x){x.disabled=true;if(x.dataset.a===S[si][1])x.classList.add('good')});
+    if(!ok)b.classList.add('bad');
+    $('so-res').textContent=(ok?'Верно. ':'Неверно. ')+S[si][2];$('so-res').hidden=false;$('so-next').textContent='Дальше';$('so-next').hidden=false;
+  }});
+  $('so-next').onclick=function(){if(si>=S.length){si=0;ss=0}else si++;sorter()};
+  sorter();
+
+  /* викторина */
+  var Q=[['В каком году появились студенческие отряды?',['1939','1959','1979'],1,'Это 1959 год, начало стройотрядовского движения.'],
+    ['Когда отмечается День студента?',['25 января','1 сентября','12 апреля'],0,'Татьянин день, 25 января.'],
+    ['Что такое «распределение» в СССР?',['Деление группы на подгруппы','Направление выпускника на работу','Раздача стипендии'],1,'Выпускник направлялся на работу и должен был отработать несколько лет.'],
+    ['С какого года ЕГЭ стал основным способом поступления по всей России?',['2001','2009','2015'],1,'С 2009 года, после перехода на общероссийский формат.'],
+    ['В каком году прошла первая игра КВН на телевидении?',['1961','1975','1991'],0,'КВН вышел в эфир в 1961 году.']];
+  var qi=0,qs=0;
+  function quiz(){
+    var box=$('qz-opts');box.innerHTML='';$('qz-res').hidden=true;$('qz-next').hidden=true;
+    if(qi>=Q.length){$('qz-meta').textContent='';$('qz-q').textContent='Результат: '+qs+' из '+Q.length;$('qz-res').textContent=qs>=4?'Отлично, ты эксперт по студенчеству.':qs>=2?'Неплохо. Перечитай таймлайн ниже.':'Загляни в таймлайн ниже и попробуй ещё раз.';$('qz-res').hidden=false;$('qz-next').textContent='Пройти заново';$('qz-next').hidden=false;return}
+    $('qz-meta').textContent='Вопрос '+(qi+1)+' из '+Q.length;$('qz-q').textContent=Q[qi][0];
+    Q[qi][1].forEach(function(t,i){var b=document.createElement('button');b.type='button';b.className='opt';b.textContent=t;
+      b.onclick=function(){var ok=i===Q[qi][2];if(ok)qs++;[].forEach.call(box.children,function(c,j){c.disabled=true;if(j===Q[qi][2])c.classList.add('good')});if(!ok)b.classList.add('bad');
+        $('qz-res').textContent=(ok?'Верно. ':'Неверно. ')+Q[qi][3];$('qz-res').hidden=false;$('qz-next').textContent=qi===Q.length-1?'Узнать результат':'Дальше';$('qz-next').hidden=false};
+      box.appendChild(b)});
+  }
+  $('qz-next').onclick=function(){if(qi>=Q.length){qi=0;qs=0}else qi++;quiz()};
+  quiz();
+})();
+</script>
+</body>
+</html>
